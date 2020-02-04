@@ -19,6 +19,13 @@ const compiler = webpack({
 					loader: 'babel-loader',
 				},
 			},
+			{
+				test: /\.css$/,
+				use: [
+				 'style-loader',
+				 'raw-loader'
+			   ],
+			  }
 		],
 	},
 	output: {

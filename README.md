@@ -1,15 +1,9 @@
 # Simple Todo
-This repository is intended to be a very basic full-stack implementation of a todo list meant to serve as a coding exercise for interview candidates.
 
 The following technologies are currently used and will likely need to be understood to complete the exercise:
 - [NodeJS](https://nodejs.org/)
 - [ExpressJS](https://expressjs.com/)
 - [ReactJS](https://reactjs.org/)
-
-## Your challenge
-Your challenge, if you so choose to accept, shall be to implement the User Story below.
-
-The estimated time to complete the exercise is between 2 and 4 hours, ***please do not spend more than 8 hours on this exercise***.
 
 ### User Story
 ```
@@ -24,12 +18,6 @@ The following criteria is the minimum that must be implemented:
 - Display the number of completed and pending Todos to the User
 
 ## Getting started
-Clone this repo locally:
-```bash
-$ git clone https://github.com/CommercialTribe/simple-todo
-$ cd simple-todo
-```
-
 Verify your node version:
 ```bash
 $ node -v
@@ -48,36 +36,35 @@ $ yarn start
 
 Navigate to <http://localhost:3001/>
 
-### Extras
-We kept this exercise smaller and unopinionated in the hopes that you will be motivated to add your own ideas and refactor as you see fit.
+## Thoughts
+- I'm most familiar with Angular 2+ and typescript so this was a good learning opportunity
+- I spent some time before this learning some technologies/reading documentation for:
+    - react
+    - relay
+    - graphql
+- I attempted adding typescript to the project and failed, several times
+- I also tried to implement relay, heavily referencing their todo example. 
+    - I've since removed my attempts to clean up the project
+    - I think I did a correct graphql schema :D ++
+    - But they are removed, so I've just gained personal knowledge with nothing to share there.
+- What was done:
+    - I broke the todo app into 4 parts
+    - I'm very familiar with redux but I didn't want to add an entire library...
+        - so I did a very Angular thing and added a service. Which is used mostly like a class and then passed in as a prop to child components.
+            - the service holds a local state, handling optimistic changes, http requests, and then syncs with the server on errors
+    - I added a component for the input, the item itself, and the todo-list as a whole
+        - the purpose was to reduce how much one file was doing and keep future changes easier to manage
+    - I added in a css library, in this case it is: Tachyons. I'm generally a fan of atomic css :)
+        - I had some fun changing the look/feel and imported some material-icons
+    - I added in the update methods for the database, I also switched it to a map. We do convert to/from an array/map, but it made the functions a little easier to read.
+- Overall a fun experience to solidify my understanding of react.
 
-If you're pressed on time and can only commit the 2-4 hours for the minimum acceptance criteria, **we won't hold this against you**.  Simply add some comments to your code to express what you would like to add if you had the time.
-
-Some extras you may consider adding:
-- Dockerize the things
-- Component library (Material, Bootstrap, etc)
-- Type checking (TypeScript, Flow, etc)
-- Styling
-- Authentication/Authorization
-- State management framework (Redux, Relay, etc)
-- Use more Babel features
-- Style checking (JSHint, ESLint, Prettier, etc)
-- Persistent store (Redis, MySQL, pSQL, etc)
-- Test framework
-- etc..
-
-> **Don't go overboard**.. we suggest picking just one or two things to add that you would like to discuss with the engineers reviewing your code.
-
-## What we're looking for
-Some of the items our engineering team will be looking for will be:
-- Functional accuracy
-- Code readability
-- Component structure
-
-## How to submit
-To submit your work, you may email us at <engineering@commercialtribe.com> with either of the following:
-- a link to your own Github repo with the changes made (preferred)
-- a zip of your source files (excluding `node_modules` directory)
-
-## Need help?
-If you need help or have questions please do not hesitate to reach out to us at <engineering@commercialtribe.com>.
+## TODO (ironic)
+- convert to typescript
+- consider relay vs redux vs no state?
+- fix service to be injected properly
+- add tests
+- create a database and hook to it?
+- allow more modifications whithin the ui
+- add in prettier/stylelint/tslint config
+- add in browserlist
